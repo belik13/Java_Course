@@ -6,7 +6,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class Task8Test {
     @Test
-    @DisplayName("Тест 1")
+    @DisplayName("ParametrizedTest")
     void Test1() {
         int[][] testBoard = new int[][] {
             {0, 0, 0, 1, 0, 0, 0, 0},
@@ -22,11 +22,23 @@ public class Task8Test {
         boolean ans = Task8.knightBoardCapture(testBoard);
 
         assertThat(ans).isEqualTo(true);
-    }
-    @Test
-    @DisplayName("Тест 2")
-    void Test2() {
-        int[][] testBoard = new int[][] {
+
+        int[][] testBoard1 = new int[][] {
+            {0, 0, 0, 0, 1, 0, 0, 0},
+            {0, 0, 0, 0, 0, 1, 0, 0},
+            {0, 0, 0, 1, 0, 0, 0, 0},
+            {1, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 1, 0, 0, 0},
+            {0, 0, 0, 0, 0, 1, 0, 0},
+            {0, 0, 0, 0, 0, 1, 0, 0},
+            {1, 0, 0, 0, 0, 0, 0, 0}
+        };
+
+        boolean ans1 = Task8.knightBoardCapture(testBoard1);
+
+        assertThat(ans1).isEqualTo(false);
+
+        int[][] testBoard2 = new int[][] {
             {1, 0, 1, 0, 1, 0, 1, 0},
             {0, 1, 0, 1, 0, 1, 0, 1},
             {0, 0, 0, 0, 1, 0, 1, 0},
@@ -37,27 +49,8 @@ public class Task8Test {
             {0, 0, 0, 1, 0, 1, 0, 1}
         };
 
-        boolean ans = Task8.knightBoardCapture(testBoard);
+        boolean ans2 = Task8.knightBoardCapture(testBoard2);
 
-        assertThat(ans).isEqualTo(false);
+        assertThat(ans2).isEqualTo(false);
     }
-    @Test
-    @DisplayName("Тест 3")
-    void Test3() {
-        int[][] testBoard = new int[][] {
-        {0, 0, 0, 0, 1, 0, 0, 0},
-        {0, 0, 0, 0, 0, 1, 0, 0},
-        {0, 0, 0, 1, 0, 0, 0, 0},
-        {1, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 1, 0, 0, 0},
-        {0, 0, 0, 0, 0, 1, 0, 0},
-        {0, 0, 0, 0, 0, 1, 0, 0},
-        {1, 0, 0, 0, 0, 0, 0, 0}
-        };
-
-        boolean ans = Task8.knightBoardCapture(testBoard);
-
-        assertThat(ans).isEqualTo(false);
-    }
-
 }

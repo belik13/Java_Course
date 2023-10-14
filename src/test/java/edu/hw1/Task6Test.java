@@ -24,30 +24,34 @@ public class Task6Test {
         assertThat(answer).isEqualTo(1);
     }
     @Test
-    @DisplayName("Первый тест")
-    void Test1() {
+    @DisplayName("ParametrizedTest")
+    void ParametrizedTest() {
         int test = 6621;
 
         int answer = Task6.countK(test);
 
         assertThat(answer).isEqualTo(5);
+
+        int test2 = 6554;
+
+        int answer2 = Task6.countK(test2);
+
+        assertThat(answer2).isEqualTo(4);
+
+        int test3 = 1234;
+
+        int answer3 = Task6.countK(test3);
+
+        assertThat(answer3).isEqualTo(3);
+
     }
     @Test
-    @DisplayName("Второй тест")
-    void Test2() {
-        int test = 6554;
+    @DisplayName("Проверка одинаковых цифр")
+    void TestSameDigits() {
+        int test = 1111;
 
         int answer = Task6.countK(test);
 
-        assertThat(answer).isEqualTo(4);
-    }
-    @Test
-    @DisplayName("Третий тест")
-    void Test3() {
-        int test = 1234;
-
-        int answer = Task6.countK(test);
-
-        assertThat(answer).isEqualTo(3);
+        assertThat(answer).isEqualTo(-1);
     }
 }

@@ -36,25 +36,20 @@ public class Task3Test {
         assertThat(ans).isEqualTo(false);
     }
     @Test
-    @DisplayName("Test2")
-    void neastedArrayTrue2() {
+    @DisplayName("@ParameterizedTest")
+    void ParameterizedTest() {
         int testArray[] = new int [] {3,1};
         int testArray2[] = new int [] {4,0};
 
         boolean ans = Task3.isNestable(testArray,testArray2);
 
         assertThat(ans).isEqualTo(true);
+
+        int testArray3[] = new int [] {1,2,3,4};
+        int testArray4[] = new int [] {2,3};
+
+        boolean ans1 = Task3.isNestable(testArray3,testArray4);
+
+        assertThat(ans1).isEqualTo(false);
     }
-    @Test
-    @DisplayName("Проверка на false2")
-    void neastedArrayFalse2() {
-        int testArray[] = new int [] {1,2,3,4};
-        int testArray2[] = new int [] {2,3};
-
-        boolean ans = Task3.isNestable(testArray,testArray2);
-
-        assertThat(ans).isEqualTo(false);
-    }
-
-
 }

@@ -11,7 +11,7 @@ public final class Task1 {
         if (videolength == null) {
             return -1;
         }
-        var splittedString = videolength.split(":");
+        String[] splittedString = videolength.split(":");
         int minutes = Integer.parseInt(splittedString[0]);
         int seconds = Integer.parseInt(splittedString[1]);
         if ((seconds < SEC_IN_MIN) && (seconds >= 0) && (minutes >= 0)) {

@@ -6,31 +6,25 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class Task5Test {
     @Test
-    @DisplayName("Первый тест")
+    @DisplayName("ParametrizedTests")
     void firstTest() {
         int test = 11211230;
 
         boolean ans = Task5.isPalindromeDescendant(test);
 
         assertThat(ans).isEqualTo(true);
-    }
-    @Test
-    @DisplayName("Второй тест")
-    void secTest() {
-        int test = 13001120;
 
-        boolean ans = Task5.isPalindromeDescendant(test);
+        int test1 = 13001120;
 
-        assertThat(ans).isEqualTo(true);
-    }
-    @Test
-    @DisplayName("Третий тест")
-    void thirdTest() {
-        int test = 23336014;
+        boolean ans1 = Task5.isPalindromeDescendant(test);
 
-        boolean ans = Task5.isPalindromeDescendant(test);
+        assertThat(ans1).isEqualTo(true);
 
-        assertThat(ans).isEqualTo(true);
+        int test2 = 23336014;
+
+        boolean ans2 = Task5.isPalindromeDescendant(test);
+
+        assertThat(ans2).isEqualTo(true);
     }
     @Test
     @DisplayName("Изначальный палиндром")
