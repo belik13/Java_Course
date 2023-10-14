@@ -2,6 +2,8 @@ package edu.hw1;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class Task2Test {
@@ -17,18 +19,12 @@ public class Task2Test {
         // then
         assertThat(ans).isEqualTo(1);
     }
-    @Test
-    @DisplayName("Проверка на случайном числе")
-    void randomValTest() {
-        int test = 432;
-        int ans = Task2.countDigits(test);
-        assertThat(ans).isEqualTo(3);
-    }
-    @Test
-    @DisplayName("Проверка на отрицательном числе")
-    void negativeTest() {
-        int test = -432;
-        int ans = Task2.countDigits(test);
-        assertThat(ans).isEqualTo(3);
+
+    @ParameterizedTest
+    @CsvSource({"4, 1", "200, 3", "-300, 3", "45455, 5"})
+    void ParametrizedTest(int input, int excepted) {
+        int ans = Task2.countDigits(input);
+
+        assertThat(ans).isEqualTo(excepted);
     }
 }

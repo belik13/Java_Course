@@ -2,6 +2,8 @@ package edu.hw1;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class Task4Test {
@@ -14,19 +16,12 @@ public class Task4Test {
 
         assertThat(answer).isEqualTo("");
     }
-    @Test
-    @DisplayName("ParametrizedTest")
-    void firstTest() {
-        String test = "123456";
 
-        String answer = Task4.fixString(test);
+    @ParameterizedTest
+    @CsvSource({"123456, 214365", "hTsii  s aimex dpus rtni.g, This is a mixed up string."})
+    void ParametrizedTest(String input, String excepted) {
+        String ans = Task4.fixString(input);
 
-        assertThat(answer).isEqualTo("214365");
-
-        String test1 = "hTsii  s aimex dpus rtni.g";
-
-        String answer1 = Task4.fixString(test1);
-
-        assertThat(answer1).isEqualTo("This is a mixed up string.");
+        assertThat(ans).isEqualTo(excepted);
     }
 }

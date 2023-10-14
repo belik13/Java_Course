@@ -2,29 +2,17 @@ package edu.hw1;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class Task5Test {
-    @Test
-    @DisplayName("ParametrizedTests")
-    void firstTest() {
-        int test = 11211230;
+    @ParameterizedTest
+    @CsvSource({"11211230, true", "13001120, true", "23336014, true"})
+    void ParametrizedTest(int input, boolean excepted) {
+        boolean ans = Task5.isPalindromeDescendant(input);
 
-        boolean ans = Task5.isPalindromeDescendant(test);
-
-        assertThat(ans).isEqualTo(true);
-
-        int test1 = 13001120;
-
-        boolean ans1 = Task5.isPalindromeDescendant(test);
-
-        assertThat(ans1).isEqualTo(true);
-
-        int test2 = 23336014;
-
-        boolean ans2 = Task5.isPalindromeDescendant(test);
-
-        assertThat(ans2).isEqualTo(true);
+        assertThat(ans).isEqualTo(excepted);
     }
     @Test
     @DisplayName("Изначальный палиндром")

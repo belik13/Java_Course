@@ -6,8 +6,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class Task8Test {
     @Test
-    @DisplayName("ParametrizedTest")
-    void Test1() {
+    @DisplayName("ExampleTest1Check")
+    void ExampleTest1Check() {
         int[][] testBoard = new int[][] {
             {0, 0, 0, 1, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0},
