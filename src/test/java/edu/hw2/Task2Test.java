@@ -28,7 +28,7 @@ public class Task2Test {
     @Test
     @DisplayName("Создание прямоугольника из квадрата")
     public void creatingRectangle() {
-        Square check = new Square(7).setLength(4);
+        Square check = new Square(7).setSide(4);
         assertThat(check.area()).isEqualTo(16);
     }
     @Test

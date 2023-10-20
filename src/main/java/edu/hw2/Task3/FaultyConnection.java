@@ -23,7 +23,6 @@ public class FaultyConnection implements Connection {
         if (random.nextInt(CHANCE_OF_CONNECTION_ERROR) == 1) {
             throw new ConnectionException("Connection error");
         }
-        //connection has not been lost, so continue execution
     }
 
     @Override
