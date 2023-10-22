@@ -37,5 +37,18 @@ public class Project1Test {
 
         assertThat(game.lose()).isEqualTo(true);
     }
+    @Test
+    @DisplayName("Тест открытия нескольких букв сразу")
+    void openingTwoWords() {
+        Word word = new Word("fanta");
+        word.openLetter('a');
+        assertThat(word.toString()).isEqualTo("*a**a");
+    }
+    @Test
+    @DisplayName("Загадываемое слово имеет некорректную длину, меняем слово на другое")
+    void wrongWordToGuess() {
+        Word word = new Word("");
+        assertThat(word.toString()).isNotSameAs("");
+    }
 
 }

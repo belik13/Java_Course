@@ -18,6 +18,10 @@ class Session {
     public static void startGame() {
         ConsoleHangman game = new ConsoleHangman(MAX_ATTEMPTS, Dictionary.getRandomWord());
 
+        if (game.getCurrWordString().length() < 1) {
+            game = new ConsoleHangman(MAX_ATTEMPTS, Dictionary.getRandomWord());
+        }
+
         while (!game.lose() && !game.win()) {
             LOGGER.info("Guess a letter:");
 
