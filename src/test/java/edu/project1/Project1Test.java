@@ -2,7 +2,13 @@ package edu.project1;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.in;
 
 public class Project1Test {
     @Test
@@ -50,5 +56,4 @@ public class Project1Test {
         Word word = new Word("");
         assertThat(word.toString()).isNotSameAs("");
     }
-
 }
