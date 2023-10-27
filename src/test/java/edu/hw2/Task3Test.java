@@ -42,7 +42,6 @@ public class Task3Test {
         Connection actual = connectionManager.getConnection();
         assertThat(actual).isInstanceOf(FaultyConnection.class);
     }
-
     @Test
     @DisplayName("tryExecute test with Exception")
     public void wException() {

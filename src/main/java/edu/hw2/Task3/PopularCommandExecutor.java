@@ -14,11 +14,11 @@ public final class PopularCommandExecutor {
         this.maxAttempts = maxAttempts;
     }
 
-    public void updatePackages() throws Exception {
+    public void updatePackages() {
         tryExecute("apt update && apt upgrade -y");
     }
 
-    void tryExecute(String command) throws Exception {
+    void tryExecute(String command) throws ConnectionException {
         int currentNumberOfAttempts = 0;
         while (currentNumberOfAttempts < maxAttempts) {
             try (Connection connection = manager.getConnection()) {
@@ -26,7 +26,12 @@ public final class PopularCommandExecutor {
                 LOGGER.info("Command was executed successfully");
                 return;
             } catch (ConnectionException e) {
-                throw new ConnectionException("The maximum number of attempts has been exceeded", e);
+                currentNumberOfAttempts++;
+                if (currentNumberOfAttempts >= maxAttempts) {
+                    throw new ConnectionException("The maximum number of attempts has been exceeded", e);
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }
