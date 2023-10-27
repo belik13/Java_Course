@@ -24,11 +24,11 @@ class Session {
 
         while (!game.lose() && !game.win()) {
             LOGGER.info("Guess a letter:");
-            LOGGER.info("If you want to restart game or surround - print Surround");
+            LOGGER.info("If you want to restart game or surrender - print Surrender");
 
             input = SCANNER.nextLine();
 
-            if (input.equals("Surround")) {
+            if (input.equals("Surrender")) {
                 LOGGER.info("You lost :((( If you want to start new game print YES");
 
                 input = SCANNER.nextLine();
