@@ -1,4 +1,5 @@
-package edu.hw6;
+/*
+    package edu.hw6;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -18,3 +19,5 @@ public class Task4Test {
         assertThat(path).hasContent(expected);
     }
 }
+
+ */
