@@ -1,5 +1,4 @@
-/*
-    package edu.hw6;
+package edu.hw6;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -13,11 +12,11 @@ public class Task4Test {
     @Test
     void testWrite(@TempDir Path path) throws IOException {
         String expected = "Programming is learned by writing programs. ― Brian Kernighan";
+        Path testFile = path.resolve("test.txt");
 
-        write(path.toString(), expected);
+        write(testFile.toString(), expected);
 
-        assertThat(path).hasContent(expected);
+        assertThat(testFile).hasContent(expected);
     }
 }
 
- */
