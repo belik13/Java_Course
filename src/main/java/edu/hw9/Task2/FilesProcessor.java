@@ -6,6 +6,10 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.function.Predicate;
 
 public class FilesProcessor {
+    private FilesProcessor() {
+
+    }
+
     private static final ForkJoinPool FORK_JOIN_POOL = ForkJoinPool.commonPool();
 
     public static List<String> findDirectoriesWithMoreThanNumberFiles(Path root, int number) {
