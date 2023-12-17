@@ -3,13 +3,13 @@ package edu.hw10.Task1;
 import edu.hw10.Task1.Validation.Max;
 import edu.hw10.Task1.Validation.Min;
 import edu.hw10.Task1.Validation.TaskNotNull;
-import org.jetbrains.annotations.NotNull;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import org.jetbrains.annotations.NotNull;
 
 public class RandomObjectGenerator {
     private final Random random;
@@ -58,6 +58,7 @@ public class RandomObjectGenerator {
         return classObj.cast(factoryMethod.invoke(null, arguments));
     }
 
+    @SuppressWarnings("ReturnCount")
     private Object getRandomValue(Class<?> type, List<Annotation> annotations) {
 
         var minAnnotation
