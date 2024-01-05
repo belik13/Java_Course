@@ -1,0 +1,53 @@
+package edu.hw6;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import static java.net.http.HttpClient.newHttpClient;
+
+public class HackerNews {
+    private static final Pattern TITLE_PATTERN = Pattern.compile("\"title\":\"([^\"]+)\"");
+
+    public long[] getHackerNewsTopStories() {
+        try (HttpClient client = newHttpClient()) {
+            var request = HttpRequest.newBuilder()
+                .GET()
+                .uri(new URI("https://hacker-news.firebaseio.com/v0/topstories.json"))
+                .build();
+            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            return convertJsonToLongArray(response.body());
+        } catch (Exception e) {
+            return new long[0];
+        }
+    }
+
+    public String getNewsTitle(long newsId) {
+        try (HttpClient client = newHttpClient()) {
+            var request = HttpRequest.newBuilder()
+                .GET()
+                .uri(new URI("https://hacker-news.firebaseio.com/v0/item/" + newsId + ".json"))
+                .build();
+            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            return getNewsTitleFromJson(response.body());
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    public String getNewsTitleFromJson(String json) {
+        Matcher matcher = TITLE_PATTERN.matcher(json);
+        if (matcher.find()) {
+            return matcher.group(1);
+        }
+        return "";
+    }
+
+    public long[] convertJsonToLongArray(String json) {
+        String[] topStories = json.substring(1, json.length() - 1).split(",");
+        return Arrays.stream(topStories).mapToLong(Long::parseLong).toArray();
+    }
+}
